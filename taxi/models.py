@@ -8,19 +8,15 @@ class Manufacturer(models.Model):
     country = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"{self.name}, {self.country}"
+        return self.name
 
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=50, unique=True)
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(max_length=50)
     password = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"{self.username} {self.first_name} {self.last_name}"
+        return self.username
 
 
 class Car(models.Model):
